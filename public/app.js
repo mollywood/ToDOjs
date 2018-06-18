@@ -25,7 +25,7 @@ taskForm.addEventListener('submit', function(e){
 })
 
 function removeTodoItem(taskID) {
-    html -= taskID
+    todos["/tasks"].splice(taskID, 1)
   }
 
 function displayTodos(todos) {
@@ -33,7 +33,7 @@ function displayTodos(todos) {
     let html = ''
 
     todos.forEach(function(todoItem){
-        html += `<li>${todoItem.title}</li><button onclick="removeTodoItem('${todoItem.taskID}')">Remove</button>`
+        html += `<li><input type="checkbox"> ${todoItem.title} - Priority: ${todoItem.priority} - Date Created: ${todoItem.dateCreated}</li><button onclick="removeTodoItem('${todoItem.taskID}')">Remove</button>`
     })
 
     todoList.innerHTML = html
